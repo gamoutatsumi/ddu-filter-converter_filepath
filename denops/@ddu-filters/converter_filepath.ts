@@ -27,13 +27,17 @@ export class Filter extends BaseFilter<BaseFilterParams> {
       if (path === undefined || !isAbsolute(path)) {
         return item;
       }
-      const { word, display = word } = item;
+      const { word, display = word, matcherKey } = item;
       if (display !== path) {
         return item;
       }
 
       const relPath = relative(cwd, display);
 
+      if (matcherKey === path) {
+        item.matcherKey = relPath;
+      }
+      item.word = relPath;
       item.display = relPath;
 
       return item;
