@@ -28,7 +28,6 @@ export class Filter extends BaseFilter<BaseFilterParams> {
         return item;
       }
       const { word, display = word } = item;
-      console.log({ display, path });
       if (display !== path) {
         return item;
       }
