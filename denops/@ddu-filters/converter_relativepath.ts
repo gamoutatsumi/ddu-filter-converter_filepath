@@ -2,14 +2,14 @@ import {
   BaseFilter,
   BaseFilterParams,
   DduItem,
-} from "https://deno.land/x/ddu_vim@v3.4.4/types.ts";
-import { fn } from "https://deno.land/x/ddu_vim@v3.4.4/deps.ts";
+} from "https://deno.land/x/ddu_vim@v3.6.0/types.ts";
+import { fn } from "https://deno.land/x/ddu_vim@v3.6.0/deps.ts";
 import {
   isAbsolute,
   relative,
-} from "https://deno.land/std@0.196.0/path/mod.ts";
-import { is } from "https://deno.land/x/unknownutil@v3.4.0/mod.ts";
-import { FilterArguments } from "https://deno.land/x/ddu_vim@v3.4.4/base/filter.ts";
+} from "https://deno.land/std@0.205.0/path/mod.ts";
+import { is } from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
+import { FilterArguments } from "https://deno.land/x/ddu_vim@v3.6.0/base/filter.ts";
 
 function getPath(item: DduItem): string | undefined {
   if (is.ObjectOf({ action: is.ObjectOf({ path: is.String }) })(item)) {
