@@ -2,11 +2,11 @@ import {
   BaseFilter,
   BaseFilterParams,
   DduItem,
-} from "jsr:@shougo/ddu-vim@5.0.0/types";
-import * as fn from "jsr:@denops/std@7.0.1/function";
-import { isAbsolute, relative } from "jsr:@std/path@1.0.2";
-import { is } from "jsr:@core/unknownutil@3.18.1";
-import { FilterArguments } from "jsr:@shougo/ddu-vim@5.0.0/filter";
+} from "jsr:@shougo/ddu-vim@9.4.0/types";
+import * as fn from "jsr:@denops/std@7.4.0/function";
+import { isAbsolute, relative } from "jsr:@std/path@1.0.8";
+import { is } from "jsr:@core/unknownutil@4.3.0";
+import { FilterArguments } from "jsr:@shougo/ddu-vim@9.4.0/filter";
 
 function getPath(item: DduItem): string | undefined {
   if (is.ObjectOf({ action: is.ObjectOf({ path: is.String }) })(item)) {
