@@ -1,12 +1,8 @@
-import {
-  BaseFilter,
-  BaseFilterParams,
-  DduItem,
-} from "jsr:@shougo/ddu-vim@9.4.0/types";
+import { DduItem } from "jsr:@shougo/ddu-vim@9.4.0/types";
 import * as fn from "jsr:@denops/std@7.4.0/function";
 import { isAbsolute, relative } from "jsr:@std/path@1.0.8";
 import { is } from "jsr:@core/unknownutil@4.3.0";
-import { FilterArguments } from "jsr:@shougo/ddu-vim@9.4.0/filter";
+import { BaseFilter, FilterArguments } from "jsr:@shougo/ddu-vim@9.4.0/filter";
 
 function getPath(item: DduItem): string | undefined {
   if (is.ObjectOf({ action: is.ObjectOf({ path: is.String }) })(item)) {
@@ -14,11 +10,13 @@ function getPath(item: DduItem): string | undefined {
   }
 }
 
-export class Filter extends BaseFilter<BaseFilterParams> {
+type Params = Record<string, unknown>;
+
+export class Filter extends BaseFilter<Params> {
   async filter({
     items,
     denops,
-  }: FilterArguments<BaseFilterParams>): Promise<DduItem[]> {
+  }: FilterArguments<Params>): Promise<DduItem[]> {
     const cwd = await fn.getcwd(denops);
     return Promise.resolve(
       items.map((item) => {
